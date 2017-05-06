@@ -1,7 +1,9 @@
 import topics from './topics';
-import users from './users';
+import auth from './auth';
+import user from './user';
 
 export default {
   topics,
-  users
+  auth,
+  user
 };

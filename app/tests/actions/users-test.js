@@ -4,7 +4,7 @@ import { polyfill } from 'es6-promise';
 import axios from 'axios';
 import expect from 'expect';
 import sinon from 'sinon';
-import * as actions from '../../actions/users';
+import * as actions from '../../actions/auth';
 import * as types from '../../types';
 
 polyfill();

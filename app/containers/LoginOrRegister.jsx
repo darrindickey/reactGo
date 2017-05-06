@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames/bind';
 import { connect } from 'react-redux';
-import { manualLogin, signUp, toggleLoginMode } from '../actions/users';
+import { manualLogin, signUp, toggleLoginMode } from '../actions/auth';
 import styles from '../css/components/login';
 import hourGlassSvg from '../images/hourglass.svg';
 

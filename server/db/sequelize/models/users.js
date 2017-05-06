@@ -28,7 +28,19 @@ export default (sequelize, DataTypes) => {
     password: {
       type: DataTypes.STRING
     },
-    name: {
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    first_name: {
+      type: DataTypes.STRING,
+      defaultValue: ''
+    },
+    last_name: {
+      type: DataTypes.STRING,
+      defaultValue: ''
+    },
+    display_name: {
       type: DataTypes.STRING,
       defaultValue: ''
     },
@@ -47,6 +59,14 @@ export default (sequelize, DataTypes) => {
     picture: {
       type: DataTypes.STRING,
       defaultValue: ''
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
     },
     resetPasswordToken: {
       type: DataTypes.STRING

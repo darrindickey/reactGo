@@ -3,29 +3,34 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import classNames from 'classnames/bind';
-import { logOut } from '../actions/users';
+import { logOut } from '../actions/auth';
 import styles from '../css/components/navigation';
 
 const cx = classNames.bind(styles);
 
 const Navigation = ({ user, logOut }) => {
-    return (
-      <nav className={cx('navigation')} role="navigation">
-        <Link
-          to="/"
-          className={cx('item', 'logo')}
-          activeClassName={cx('active')}>Ninja Ocean</Link>
-          { user.authenticated ? (
-            <Link
-              onClick={logOut}
-              className={cx('item')} to="/">Logout</Link>
-          ) : (
-            <Link className={cx('item')} to="/login">Log in</Link>
-          )}
-        <Link className={cx('item')} to="/dashboard">Dashboard</Link>
-        <Link to="/about" className={cx('item')} activeClassName={cx('active')}>About</Link>
-      </nav>
-    );
+  let peopleLink;
+  if (user.authenticated) {
+    peopleLink = <Link className={cx('item')} to="/people">People</Link>
+  }
+  return (
+    <nav className={cx('navigation')} role="navigation">
+      <Link
+        to="/"
+        className={cx('item', 'logo')}
+        activeClassName={cx('active')}>Ninja Ocean</Link>
+        { user.authenticated ? (
+          <Link
+            onClick={logOut}
+            className={cx('item')} to="/">Logout</Link>
+        ) : (
+          <Link className={cx('item')} to="/login">Log in</Link>
+        )}
+      {peopleLink}
+      <Link className={cx('item')} to="/dashboard">Dashboard</Link>
+      <Link to="/about" className={cx('item')} activeClassName={cx('active')}>About</Link>
+    </nav>
+  );
 };
 
 Navigation.propTypes = {

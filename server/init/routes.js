@@ -5,15 +5,16 @@ import passport from 'passport';
 import unsupportedMessage from '../db/unsupportedMessage';
 import { controllers, passport as passportConfig } from '../db';
 
-const usersController = controllers && controllers.users;
+const authController = controllers && controllers.auth;
 const topicsController = controllers && controllers.topics;
+const userController = controllers && controllers.user;
 
 export default (app) => {
   // user routes
-  if (usersController) {
-    app.post('/login', usersController.login);
-    app.post('/signup', usersController.signUp);
-    app.post('/logout', usersController.logout);
+  if (authController) {
+    app.post('/login', authController.login);
+    app.post('/signup', authController.signUp);
+    app.post('/logout', authController.logout);
   } else {
     console.warn(unsupportedMessage('users routes'));
   }
@@ -51,5 +52,20 @@ export default (app) => {
     app.delete('/topic/:id', topicsController.remove);
   } else {
     console.warn(unsupportedMessage('topics routes'));
+  }
+
+  // users routes
+  if (userController) {
+    app.get('/user', userController.all);
+  } else {
+    console.warn(unsupportedMessage('userlist routes'));
+  }
+
+  // profile routes
+  if (userController) {
+    app.get('/profile/:username', userController.one);
+    // app.put('/user/:username', userController.update);
+  } else {
+    console.warn(unsupportedMessage('userData routes'));
   }
 };

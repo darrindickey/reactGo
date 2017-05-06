@@ -55,6 +55,7 @@ export default function render(req, res) {
       store.dispatch({ type: types.CREATE_REQUEST });
       fetchDataForRoute(props)
         .then((data) => {
+          console.log('data', data)
           store.dispatch({ type: types.REQUEST_SUCCESS, data });
           const html = pageRenderer(store, props);
           res.status(200).send(html);
