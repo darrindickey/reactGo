@@ -9,7 +9,8 @@ const cx = classNames.bind(styles);
 
 class Profile extends Component {
   render() {
-    // const { userData } = this.props;
+    console.log('props', this.props)
+    const { userData } = this.props;
 
     return (
       <div className={cx('user')}>
@@ -19,14 +20,14 @@ class Profile extends Component {
   }
 }
 
-// Profile.propTypes = {
-//   // userData: PropTypes.object.isRequired
-// };
+Profile.propTypes = {
+  userData: PropTypes.object
+};
 
 function mapStateToProps(state) {
   console.log('state', state)
   return {
-    // userData: state.userData.userData
+    userData: state.userData.userData
   };
 }
 

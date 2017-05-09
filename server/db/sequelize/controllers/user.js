@@ -9,7 +9,6 @@ export function all(req, res) {
   User.findAll({
     attributes: { exclude: ['password', 'createdAt', 'updatedAt'] }
   }).then((userList) => {
-    console.log('userList', userList)
     res.json(userList);
   }).catch((err) => {
     console.log(err);
@@ -18,10 +17,10 @@ export function all(req, res) {
 }
 
 export function one(req, res) {
-  const userId = req.user.id;
+  // const userId = req.user.id;
 
   User.findOne({
-    where: { id: userId },
+    // where: { id: userId },
     attributes: { exclude: ['password', 'createdAt', 'updatedAt'] }
   }).then((userData) => {
     console.log('userController data', userData)

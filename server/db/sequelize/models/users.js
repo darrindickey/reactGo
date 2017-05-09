@@ -29,8 +29,7 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.STRING
     },
     username: {
-      type: DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.STRING
     },
     first_name: {
       type: DataTypes.STRING,
@@ -61,12 +60,10 @@ export default (sequelize, DataTypes) => {
       defaultValue: ''
     },
     createdAt: {
-      type: DataTypes.DATE,
-      allowNull: false,
+      type: DataTypes.DATE
     },
     updatedAt: {
-      type: DataTypes.DATE,
-      allowNull: false,
+      type: DataTypes.DATE
     },
     resetPasswordToken: {
       type: DataTypes.STRING

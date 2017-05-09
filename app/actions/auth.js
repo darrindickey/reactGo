@@ -83,6 +83,7 @@ export function manualLogin(data) {
         }
       })
       .catch((err) => {
+        console.log('err', err)
         dispatch(loginError(getMessage(err)));
       });
   };
