@@ -9,10 +9,11 @@ module.exports = ({ production = false, browser = false } = {}) => {
   const presets = createPresets(enableHotModuleReplacement);
 
   const plugins = production ? [
-      'transform-react-remove-prop-types',
-      'transform-react-constant-elements',
-      'transform-react-inline-elements'
-  ]: [];
+    'transform-decorators-legacy',
+    'transform-react-remove-prop-types',
+    'transform-react-constant-elements',
+    'transform-react-inline-elements'
+  ]: ['transform-decorators-legacy'];
 
   return {
     test: /\.js$|\.jsx$/,

@@ -1,6 +1,17 @@
+import _ from 'lodash';
 import { Models } from '../models';
 
 const User = Models.User;
+
+const removeEmptyStrings = (obj) => {
+  const newObj = {};
+  Object.keys(obj).forEach((prop) => {
+    if (obj[prop] !== '') {
+      newObj[prop] = obj[prop];
+    }
+  });
+  return newObj;
+};
 
 /**
  * List
@@ -16,15 +27,45 @@ export function all(req, res) {
   });
 }
 
+/**
+ * Single User
+ */
 export function one(req, res) {
-  // const userId = req.user.id;
+  const username = req.params.username;
 
   User.findOne({
-    // where: { id: userId },
+    where: { username },
     attributes: { exclude: ['password', 'createdAt', 'updatedAt'] }
   }).then((userData) => {
-    console.log('userController data', userData)
     res.json(userData);
+  }).catch((err) => {
+    console.log(err);
+    res.status(500).send('Error in first query');
+  });
+}
+
+/**
+ * Specific User
+ */
+export function update(req, res) {
+  const formFields = req.body;
+  let query = {
+    username: formFields.username,
+    first_name: formFields.first_name,
+    last_name: formFields.last_name,
+    display_name: formFields.display_name,
+    user_facebook: formFields.user_facebook,
+    user_twitter: formFields.user_twitter,
+    user_instagram: formFields.user_instagram,
+    user_foursquare: formFields.user_foursquare,
+    user_google_plus: formFields.user_google_plus
+  };
+
+  query = removeEmptyStrings(query);
+  User.update( query, {
+    where: { email: formFields.email }
+  }).then((result) => {
+    res.status(200).send('success');
   }).catch((err) => {
     console.log(err);
     res.status(500).send('Error in first query');
@@ -33,5 +74,6 @@ export function one(req, res) {
 
 export default {
   all,
-  one
+  one,
+  update
 };

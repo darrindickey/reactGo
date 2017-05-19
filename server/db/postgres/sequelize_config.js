@@ -4,7 +4,8 @@ module.exports = {
     password: null,
     database: 'react_webpack_node_development',
     host: '127.0.0.1',
-    dialect: 'postgres'
+    dialect: 'postgres',
+    logging: console.log
   },
   test: {
     username: process.env.PGUSER || 'root',

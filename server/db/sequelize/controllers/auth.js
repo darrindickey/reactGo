@@ -46,6 +46,7 @@ export function signUp(req, res, next) {
 
     const user = User.build({
       email: req.body.email,
+      username: req.body.username,
       password: req.body.password
     });
 
@@ -54,6 +55,7 @@ export function signUp(req, res, next) {
         if (err) return res.status(401).json({ message: err });
         return res.status(200).json({
           userId: req.user.id,
+          username: req.user.username,
           message: 'You have been successfully logged in.'
         });
       });

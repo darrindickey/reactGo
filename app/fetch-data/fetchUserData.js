@@ -1,7 +1,6 @@
 import { userService } from '../services';
 
 const fetchUserData = (params) => {
-
   return userService(params).getUser()
   .then(res => res.data)
   // Returning [] as a placeholder now so it does not error out when this service

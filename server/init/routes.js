@@ -64,7 +64,7 @@ export default (app) => {
   // profile routes
   if (userController) {
     app.get('/user/:username', userController.one);
-    // app.put('/user/:username', userController.update);
+    app.put('/user/:username', userController.update);
   } else {
     console.warn(unsupportedMessage('userData routes'));
   }

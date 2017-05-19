@@ -25,12 +25,13 @@ class LoginOrRegister extends Component {
 
     const { manualLogin, signUp, user: { isLogin } } = this.props;
     const email = ReactDOM.findDOMNode(this.refs.email).value;
+    const username = ReactDOM.findDOMNode(this.refs.username).value;
     const password = ReactDOM.findDOMNode(this.refs.password).value;
 
     if (isLogin) {
       manualLogin({ email, password });
     } else {
-      signUp({ email, password });
+      signUp({ email, username, password });
     }
   }
 
@@ -39,7 +40,7 @@ class LoginOrRegister extends Component {
     if (isLogin) {
       return (
         <div className={cx('header')}>
-          <h1 className={cx('heading')}>Login with Email</h1>
+          <h1 className={cx('heading')}>Sign In</h1>
           <div className={cx('alternative')}>
             Not what you want?
             <a
@@ -53,7 +54,7 @@ class LoginOrRegister extends Component {
 
     return (
       <div className={cx('header')}>
-        <h1 className={cx('heading')}>Register with Email</h1>
+        <h1 className={cx('heading')}>Sign Up - It's FREE!</h1>
         <div className={cx('alternative')}>
           Already have an account?
           <a
@@ -83,18 +84,24 @@ class LoginOrRegister extends Component {
                 className={cx('input')}
                 type="email"
                 ref="email"
-               placeholder="email"
+                placeholder="email"
+              />
+              <input
+                className={cx('input')}
+                type="username"
+                ref="username"
+                placeholder="username"
               />
               <input
                 className={cx('input')}
                 type="password"
-               ref="password"
+                ref="password"
                 placeholder="password"
               />
-              <div className={cx('hint')}>
+              {/*<div className={cx('hint')}>
                 <div>Hint</div>
                 <div>email: example@ninja.com password: ninja</div>
-              </div>
+              </div>*/}
               <p
                 className={cx('message', {
                 'message-show': message && message.length > 0

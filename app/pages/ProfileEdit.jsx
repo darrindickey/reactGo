@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Page from '../pages/Page';
-import ProfileContainer from '../containers/Profile';
+import ProfileEditContainer from '../containers/ProfileEdit';
 
-class Profile extends Component {
+class ProfileEdit extends Component {
   getMetaData() {
     return {
       title: this.pageTitle(),
@@ -17,7 +17,7 @@ class Profile extends Component {
 
   pageMeta = () => {
     return [
-      { name: 'description', content: 'A user profile page' }
+      { name: 'description', content: 'Edit your profile...' }
     ];
   };
 
@@ -28,10 +28,10 @@ class Profile extends Component {
   render() {
     return (
       <Page {...this.getMetaData()}>
-        <ProfileContainer {...this.props} />
+        <ProfileEditContainer {...this.props} />
       </Page>
     );
   }
 }
 
-export default Profile;
+export default ProfileEdit;

@@ -5,18 +5,21 @@ import styles from '../css/components/user-summary.css';
 
 const cx = classNames.bind(styles);
 
-const UserSummary = ({ userList }) => {
+const UserSummary = ({ user }) => {
   let id;
   let email;
-  if (userList) {
-    id = userList.id;
-    email = userList.email;
+  let username;
+
+  if (user) {
+    id = user.id;
+    email = user.email;
+    username = user.profile.username;
   }
   // const {id, email} = userList;
 
   return (
     <li className={cx('user-summary')} key={id}>
-      <span className={cx('user')} data-id={id}>{email}</span>
+      <span className={cx('user')} data-id={id}>{username}</span>
     </li>
   );
 };

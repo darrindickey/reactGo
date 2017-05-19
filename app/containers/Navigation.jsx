@@ -10,15 +10,17 @@ const cx = classNames.bind(styles);
 
 const Navigation = ({ user, logOut }) => {
   let peopleLink;
+  let profileLink;
   if (user.authenticated) {
     peopleLink = <Link className={cx('item')} to="/people">People</Link>
+    profileLink = <Link className={cx('item')} to="/profile/darrindickey">Profile</Link>
   }
   return (
     <nav className={cx('navigation')} role="navigation">
       <Link
         to="/"
         className={cx('item', 'logo')}
-        activeClassName={cx('active')}>Ninja Ocean</Link>
+        activeClassName={cx('active')}>Smok'd</Link>
         { user.authenticated ? (
           <Link
             onClick={logOut}
@@ -27,6 +29,7 @@ const Navigation = ({ user, logOut }) => {
           <Link className={cx('item')} to="/login">Log in</Link>
         )}
       {peopleLink}
+      {profileLink}
       <Link className={cx('item')} to="/dashboard">Dashboard</Link>
       <Link to="/about" className={cx('item')} activeClassName={cx('active')}>About</Link>
     </nav>

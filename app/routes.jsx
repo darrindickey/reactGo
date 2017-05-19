@@ -8,7 +8,8 @@ import {
   About,
   LoginOrRegister,
   People,
-  Profile
+  Profile,
+  ProfileEdit
 } from './pages';
 
 /*
@@ -45,6 +46,7 @@ export default (store) => {
       <Route path="about" component={About} />
       <Route path="people" component={People} fetchData={fetchAllUsersData} onEnter={requireAuth} />
       <Route path="profile/:username" component={Profile} fetchData={fetchUserData} onEnter={requireAuth} />
+      <Route path="profile/:username/edit" component={ProfileEdit} fetchData={fetchUserData} onEnter={requireAuth} />
     </Route>
   );
 };

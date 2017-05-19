@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
 import { routerReducer as routing } from 'react-router-redux';
+import { reducer as formReducer } from 'redux-form';
 import user from '../reducers/auth';
 import topic from '../reducers/topic';
 import userList from '../reducers/user';
-import userData from '../reducers/profile';
+import profileReducer from '../reducers/profile';
 import message from '../reducers/message';
 import * as types from '../types';
 
@@ -26,9 +27,10 @@ const rootReducer = combineReducers({
   topic,
   user,
   userList,
-  userData,
+  profileReducer,
   message,
-  routing
+  routing,
+  form: formReducer
 });
 
 export default rootReducer;

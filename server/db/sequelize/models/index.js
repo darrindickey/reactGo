@@ -10,7 +10,7 @@ const config = sequelizeConfig[ENV];
 const db = {};
 const dbUrl = process.env[config.use_env_variable];
 
-const sequelize = dbUrl ? new Sequelize(dbUrl) : new Sequelize(config.database, config.username, config.password, config);
+const sequelize = dbUrl ? new Sequelize(dbUrl) : new Sequelize(config.database, config.username, config.password, config, {logging: console.log});
 
 db.Token = sequelize.import('Token', tokenModel);
 db.Topic = sequelize.import('Topic', topicModel);

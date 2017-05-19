@@ -45,8 +45,6 @@ export default function render(req, res) {
    * given location.
    */
   match({routes, location: req.url}, (err, redirect, props) => {
-    // console.log('routes', routes)
-    // console.log('props', props.params.username)
     if (err) {
       res.status(500).json(err);
     } else if (redirect) {
@@ -55,10 +53,8 @@ export default function render(req, res) {
       // This method waits for all render component
       // promises to resolve before returning to browser
       store.dispatch({ type: types.CREATE_REQUEST });
-      // console.log('fetchDataForRoute', fetchDataForRoute(props))
       fetchDataForRoute(props)
         .then((data) => {
-          console.log('data', data)
           store.dispatch({ type: types.REQUEST_SUCCESS, data });
           const html = pageRenderer(store, props);
           res.status(200).send(html);

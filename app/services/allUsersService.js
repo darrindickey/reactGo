@@ -1,7 +1,13 @@
-import axios from 'axios';
+import { apiEndpoint } from '../../config/app';
+import createRestApiClient from '../utils/createRestApiClient';
 
-const allUsersService = {
-  getAllUsers: () => axios.get('/user')
+export default () => {
+  const client = createRestApiClient().withConfig({ baseURL: apiEndpoint });
+
+  return {
+    getAllUsers: () => client.request({
+      method: 'GET',
+      url: '/user'
+    })
+  };
 };
-
-export default allUsersService;

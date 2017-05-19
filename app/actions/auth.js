@@ -96,8 +96,9 @@ export function signUp(data) {
     return makeUserRequest('post', data, '/signup')
       .then((response) => {
         if (response.status === 200) {
+          const username = response.data.username;
           dispatch(signUpSuccess(response.data.message));
-          dispatch(push('/'));
+          dispatch(push(`/profile/${username}/edit`));
         } else {
           dispatch(signUpError('Oops! Something went wrong'));
         }

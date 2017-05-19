@@ -95,11 +95,19 @@ export default (sequelize, DataTypes) => {
           id: this.id,
           email: this.email,
           profile: {
-            name: this.name,
+            username: this.username,
+            first_name: this.first_name,
+            last_name: this.last_name,
             gender: this.gender,
             location: this.location,
             website: this.website,
-            picture: this.picture
+            picture: this.picture,
+            display_name: this.display_name,
+            user_facebook: this.user_facebook,
+            user_twitter: this.user_twitter,
+            user_instagram: this.user_instagram,
+            user_googleplus: this.user_googleplus,
+            user_foursquare: this.user_foursquare
           }
         };
       }

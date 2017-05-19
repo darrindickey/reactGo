@@ -1,0 +1,128 @@
+.profile-edit-form {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.profile-form-section {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: 7em;
+  border: 0.1em solid #666666;
+  border-radius: 0.25em;
+  background: #eeeeee;
+  margin: 1em auto;
+  padding: 1em;
+}
+
+.label-section {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 36%;
+  margin: 0 4% 0 0;
+}
+
+.form-section-label {
+  text-transform: uppercase;
+  text-align: right;
+  margin-top: 0.5em;
+}
+
+.input-section {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 60%;
+}
+
+input.input {
+  display: block;
+  width: 80%;
+  height: 2em;
+  font-size: 1em;
+  padding: 0.5em 0.75em;
+  margin: 0.5em 0;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  border-top: none;
+  border-bottom: 1px solid #DDD;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+}
+
+input.input:focus::placeholder {
+  color: transparent;
+}
+
+.input-row {
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  align-items: center;
+}
+
+.email-static {
+  display: block;
+  margin: 0.5em 0 1em 0;
+}
+
+.toggle-edit {
+text-transform: uppercase;
+font-size: 0.65em;
+font-weight: 600;
+}
+
+.social-url {
+  color: #666666;
+  display: inline;
+  text-align: left;
+  margin: 0 0.25em 0 0;
+}
+
+.social-input {
+  display: inline;
+  width: 45%;
+  height: 2em;
+  font-size: 1em;
+  padding: 0.5em 0.75em;
+  margin: 0.5em 0;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  border-top: none;
+  border-bottom: 1px solid #DDD;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+}
+
+.button {
+  font-size: 1em;
+  font-weight: 600;
+  padding: 0.5em 1em;
+  background-color: #666666;
+  color: #ffffff;
+  border-radius: 0.25em;
+  border: 0;
+}
+
+::-webkit-input-placeholder {
+   color: #cccccc;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #cccccc;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #cccccc;
+}
+
+:-ms-input-placeholder {  
+   color: #cccccc;
+}
+
+.toggle-edit {
+  font-size: 0.8em;
+  cursor: pointer;
+  text-decoration: underline;
+}
+    

@@ -9,7 +9,6 @@ const cx = classNames.bind(styles);
 
 class Profile extends Component {
   render() {
-    console.log('props', this.props)
     const { userData } = this.props;
 
     return (
@@ -25,9 +24,8 @@ Profile.propTypes = {
 };
 
 function mapStateToProps(state) {
-  console.log('state', state)
   return {
-    userData: state.userData.userData
+    userData: state.profileReducer.userData
   };
 }
 
